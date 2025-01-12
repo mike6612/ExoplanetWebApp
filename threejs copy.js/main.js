@@ -26,8 +26,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.z = 3;
-
+camera.position.set(0, 0, 4);
 const renderer = new THREE.WebGLRenderer();
 
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -37,13 +36,64 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Smooth controls
 controls.dampingFactor = 0.05;
 
-loader.load("new000.gltf", (gltf) => {
-  scene.add(gltf.scene);
+// loader.load("glow000.gltf", (gltf) => {
 
-  gltf.scene.position.set(0, 0, 0);
+//   scene.add(gltf.scene);
+//   gltf.scene.position.set(0, 0, 0);
 
-  gltf.scene.scale.set(20, 20, 20);
-});
+//   gltf.scene.scale.set(20, 20, 20);
+// });
+
+const gltfFiles = [
+  "glow000.gltf",
+  "glow001.gltf",
+  "glow002.gltf",
+  "glow003.gltf",
+  "glow004.gltf",
+  "glow005.gltf",
+  "glow006.gltf",
+  "glow007.gltf",
+  "glow008.gltf",
+  "glow009.gltf",
+  "glow010.gltf",
+  "glow011.gltf",
+  "glow012.gltf",
+  "glow013.gltf",
+  "glow014.gltf",
+  "glow015.gltf",
+];
+let currentIndex = 0;
+let currentModel = null;
+
+setInterval(() => {
+  loader.load(gltfFiles[currentIndex], (gltf) => {
+    if (currentModel) scene.remove(currentModel);
+    currentModel = gltf.scene;
+    scene.add(currentModel);
+    gltf.scene.position.set(0, 0, 0);
+    gltf.scene.scale.set(20, 20, 20);
+  });
+  // Move to the next file or loop back to the start
+  currentIndex = (currentIndex + 1) % gltfFiles.length;
+}, 1000);
+
+// const loadedModels = [];
+// gltfFiles.forEach((file, index) => {
+//   loader.load(file, (gltf) => {
+//     const model = gltf.scene;
+
+//     model.scale.set(20, 20, 20);
+//     loadedModels[index] = model;
+//   });
+// });
+// setInterval(() => {
+//   if (loadedModels[currentIndex]) {
+//     if (currentModel) scene.remove(currentModel);
+//     currentModel = loadedModels[currentIndex];
+//     scene.add(currentModel);
+//   }
+//   currentIndex = (currentIndex + 1) % gltfFiles.length;
+// }, 1000);
 
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
