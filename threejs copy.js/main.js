@@ -35,6 +35,7 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Smooth controls
 controls.dampingFactor = 0.05;
+controls.zoomSpeed = 0.5;
 
 // loader.load("glow000.gltf", (gltf) => {
 
@@ -86,6 +87,53 @@ const gltfFiles = [
   "glow038.gltf",
   "glow039.gltf",
   "glow040.gltf",
+  "glow041.gltf",
+  "glow042.gltf",
+  "glow043.gltf",
+  "glow044.gltf",
+  "glow045.gltf",
+  "glow046.gltf",
+  "glow047.gltf",
+  "glow048.gltf",
+  "glow049.gltf",
+  "glow050.gltf",
+  "glow051.gltf",
+  "glow052.gltf",
+  "glow053.gltf",
+  "glow054.gltf",
+  "glow055.gltf",
+  "glow056.gltf",
+  "glow057.gltf",
+  "glow058.gltf",
+  "glow059.gltf",
+  "glow060.gltf",
+  "glow061.gltf",
+  "glow062.gltf",
+  "glow063.gltf",
+  "glow064.gltf",
+  "glow065.gltf",
+  "glow066.gltf",
+  "glow067.gltf",
+  "glow068.gltf",
+  "glow069.gltf",
+  "glow070.gltf",
+  "glow071.gltf",
+  "glow072.gltf",
+  "glow073.gltf",
+  "glow074.gltf",
+  "glow075.gltf",
+  "glow076.gltf",
+  "glow077.gltf",
+  "glow078.gltf",
+  "glow079.gltf",
+  "glow080.gltf",
+  "glow081.gltf",
+  "glow082.gltf",
+  "glow083.gltf",
+  "glow084.gltf",
+  "glow085.gltf",
+  "glow086.gltf",
+  "glow087.gltf",
 ];
 let currentIndex = 0;
 let currentModel = null;
@@ -100,7 +148,7 @@ setInterval(() => {
   });
   // Move to the next file or loop back to the start
   currentIndex = (currentIndex + 1) % gltfFiles.length;
-}, 1000);
+}, 3000);
 
 // const loadedModels = [];
 // gltfFiles.forEach((file, index) => {
