@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import { GoScreenFull } from "react-icons/go";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { GoScreenFull, GoArrowLeft } from "react-icons/go";
 import "./index.css";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.171.0/build/three.module.js";
@@ -15,13 +16,35 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/
 import { OrbitControls } from "@react-three/drei";
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   return (
-    <header className="bg-black w-full h-20 flex items-center justify-center">
+    <header className="bg-black w-full h-20 flex items-center justify-center relative">
       <img
-        src="https://static.vecteezy.com/system/resources/previews/009/634/134/non_2x/url-letter-logo-design-with-polygon-shape-url-polygon-and-cube-shape-logo-design-url-hexagon-logo-template-white-and-black-colors-url-monogram-business-and-real-estate-logo-vector.jpg"
+        //src="https://static.vecteezy.com/system/resources/previews/009/634/134/non_2x/url-letter-logo-design-with-polygon-shape-url-polygon-and-cube-shape-logo-design-url-hexagon-logo-template-white-and-black-colors-url-monogram-business-and-real-estate-logo-vector.jpg"
+        src="/Logo.png"
         alt="Logo"
-        className="h-14 "
+        style={{
+          height: "100px",
+          bottom: "11px",
+          position: "relative",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/")}
       ></img>
+
+      {location.pathname !== "/" && (
+        <GoArrowLeft
+          style={{
+            color: "white",
+            position: "absolute",
+            left: "20px",
+            cursor: "pointer",
+          }}
+          size={30}
+          onClick={() => navigate(-1)}
+        />
+      )}
     </header>
   );
 };
@@ -29,7 +52,7 @@ const Header = () => {
 const Box = ({ title, image, handleClick }) => {
   return (
     <div
-      className="bg-gray-100 rounded-lg shadow-md h-56 relative overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+      className="bg-gray-100 rounded-lg shadow-md h-56 relative overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl cursor-pointer"
       onClick={handleClick}
     >
       <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -44,14 +67,14 @@ const Body = () => {
   const navigate = useNavigate();
   const boxes = [
     {
-      id: "1",
-      title: "HD-10067",
+      id: "HD-110067",
+      title: "HD-110067",
       image:
         "https://images.unsplash.com/photo-1464802686167-b939a6910659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FsYXh5fGVufDB8fDB8fHww",
     },
   ];
-  const handleBoxClick = (id) => {
-    navigate(`/box/${id}`);
+  const handleBoxClick = (id, title) => {
+    navigate(`/${id}`, { state: { title } });
   };
 
   return (
@@ -62,7 +85,7 @@ const Body = () => {
             key={index}
             title={box.title}
             image={box.image}
-            handleClick={() => handleBoxClick(box.id)}
+            handleClick={() => handleBoxClick(box.id, box.title)}
           />
         ))}
       </div>
@@ -77,12 +100,12 @@ const CubeBackground = () => {
     const loader = new THREE.CubeTextureLoader();
     // loader.setPath("./assets/threejsBoxView/"); // Optional base path
     const cubeTexture = loader.load([
-      "i/threejsBoxView/right5.png",
-      "i/threejsBoxView/left5.png",
-      "i/threejsBoxView/top5.png",
-      "i/threejsBoxView/bottom5.png",
-      "i/threejsBoxView/front5.png",
-      "i/threejsBoxView/back5.png",
+      "/threejsBoxView/right5.png",
+      "/threejsBoxView/left5.png",
+      "/threejsBoxView/top5.png",
+      "/threejsBoxView/bottom5.png",
+      "/threejsBoxView/front5.png",
+      "/threejsBoxView/back5.png",
     ]);
     setTextureCube(cubeTexture);
   }, []);
@@ -92,7 +115,7 @@ const CubeBackground = () => {
   return <primitive attach="background" object={textureCube} />;
 };
 
-const ModelTransition = ({ gltfFiles, interval = 3000 }) => {
+const ModelTransition = ({ gltfFiles, interval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentModel, setCurrentModel] = useState(null);
 
@@ -300,7 +323,7 @@ const ModelTransition = ({ gltfFiles, interval = 3000 }) => {
 //   animate();
 // };
 
-const NewThreeJSSSCENEHD110067 = () => {
+const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
   const gltfFiles = [
     "/gtlfFilesForHD1102/glow000.gltf",
     "/gtlfFilesForHD1102/glow001.gltf",
@@ -402,14 +425,18 @@ const NewThreeJSSSCENEHD110067 = () => {
         }}
         style={{
           height: "50vh",
-          width: "40%",
+          width: "41%",
           position: "relative",
           top: "20px",
           left: "40px",
           borderRadius: "10px",
         }}
       >
-        <CubeBackground />
+        {isWhiteBackground ? (
+          <color attach="background" args={["#ffffff"]} />
+        ) : (
+          <CubeBackground />
+        )}
         <OrbitControls enableDamping dampingFactor={0.05} zoomSpeed={0.5} />
         <ModelTransition gltfFiles={gltfFiles} />
       </Canvas>
@@ -417,10 +444,10 @@ const NewThreeJSSSCENEHD110067 = () => {
   );
 };
 
-const HD110067Title = () => {
+const PlanetTitle = ({ title }) => {
   return (
     <div className="text-6xl p-4 font-mono shadow-md ">
-      <h2>HD-110067</h2>
+      <h2>{title}</h2>
     </div>
   );
 };
@@ -472,6 +499,13 @@ const PlanetInfo = () => {
 
 const BoxDetails = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const { title } = location.state || {};
+  const [isWhiteBackground, setWhiteBackground] = useState(false);
+
+  const toggleWhiteBackground = () => {
+    setWhiteBackground(!isWhiteBackground);
+  };
 
   function requestFullScreen() {
     const element = document.getElementById("ThreeJSScene");
@@ -493,23 +527,36 @@ const BoxDetails = () => {
 
   return (
     <div>
-      <HD110067Title />
-
+      <PlanetTitle title={title} />
       <PlanetInfo />
       <GoScreenFull
         style={{
           height: "5vh",
           width: "5%",
           position: "relative",
-          top: "58px",
+          top: "90px",
           left: "560px",
           zIndex: 10,
-          color: "white",
+          color: "#00838F",
+          cursor: "pointer",
         }}
         className="transform transition-all duration-300 ease-in-out hover:scale-105 "
         onClick={requestFullScreen}
       />
-      <NewThreeJSSSCENEHD110067 />
+      <button
+        style={{
+          position: "relative",
+          top: "60px",
+          left: "50px",
+          zIndex: 10,
+        }}
+        className="bg-cyan-800 text-white px-5 py-1 rounded text-sm hover:bg-cyan-700 transition-all"
+        onClick={toggleWhiteBackground}
+      >
+        {isWhiteBackground ? "Space" : "White"}
+      </button>
+
+      <NewThreeJSSSCENEHD110067 isWhiteBackground={isWhiteBackground} />
     </div>
   );
 };
@@ -521,7 +568,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route path="/box/:id" element={<BoxDetails />} />
+          <Route path="/:id" element={<BoxDetails />} />
         </Routes>
       </Router>
     </>
