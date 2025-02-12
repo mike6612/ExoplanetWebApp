@@ -477,16 +477,16 @@ const ModelTransition = ({ gltfFiles, interval = 10000 }) => {
 
 const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
   const gltfFiles = [
-    "/new1111111.gltf",
-    "/gtlfFilesForHD1102/glow001.gltf",
-    "/gtlfFilesForHD1102/glow002.gltf",
-    "/gtlfFilesForHD1102/glow003.gltf",
-    "/gtlfFilesForHD1102/glow004.gltf",
-    "/gtlfFilesForHD1102/glow005.gltf",
-    "/gtlfFilesForHD1102/glow006.gltf",
-    "/gtlfFilesForHD1102/glow007.gltf",
-    "/gtlfFilesForHD1102/glow008.gltf",
-    "/gtlfFilesForHD1102/glow009.gltf",
+    "/newgltfFitles/000.gltf",
+    "/newgltfFitles/001.gltf",
+    "/newgltfFitles/002.gltf",
+    "/newgltfFitles/003.gltf",
+    "/newgltfFitles/004.gltf",
+    "/newgltfFitles/005.gltf",
+    "/newgltfFitles/006.gltf",
+    "/newgltfFitles/007.gltf",
+    "/newgltfFitles/008.gltf",
+    "/newgltfFitles/009.gltf",
     "/gtlfFilesForHD1102/glow010.gltf",
     "/gtlfFilesForHD1102/glow011.gltf",
     "/gtlfFilesForHD1102/glow012.gltf",
@@ -572,8 +572,8 @@ const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
       <Canvas
         id="ThreeJSScene"
         camera={{
-          position: [500, 140, 500],
-          far: 3000,
+          position: [10, 3, 10],
+          far: 1000,
         }}
         style={{
           height: "50vh",
