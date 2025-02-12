@@ -15,6 +15,158 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/
 // import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/jsm/controls/OrbitControls.js";
 import { OrbitControls } from "@react-three/drei";
 
+const SignupComponent = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent page reload
+
+    if (!email || !password) {
+      setError("Both fields are required");
+      return;
+    }
+
+    setError(""); // Clear errors if validation passes
+    console.log("Logging in with:", { email, password });
+
+    // Simulate login logic (replace with API call)
+    alert("Login successful!");
+  };
+
+  return (
+    <div className="login-container">
+      <h2 style={{ color: "black" }}>Signup</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input
+            style={{
+              width: "200px",
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "5px",
+              border: "2px solid transparent",
+              outline: "none",
+            }}
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div>
+          <input
+            style={{
+              width: "200px",
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "5px",
+              border: "2px solid transparent",
+              outline: "none",
+              marginTop: 10,
+            }}
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <button type="submit" style={{ marginTop: 20, width: "160px" }}>
+          Signup
+        </button>
+      </form>
+    </div>
+  );
+};
+const LoginComponent = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!email || !password) {
+      setError("Both fields are required");
+      return;
+    }
+
+    setError("");
+    console.log("Logging in with:", { email, password });
+
+    alert("Login successful!");
+  };
+
+  return (
+    <div className="login-container">
+      <h2 style={{ color: "black" }}>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input
+            style={{
+              width: "200px",
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "5px",
+              border: "2px solid transparent",
+              outline: "none",
+            }}
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div>
+          <input
+            style={{
+              width: "200px",
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "5px",
+              border: "2px solid transparent",
+              outline: "none",
+              marginTop: 10,
+            }}
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <button type="submit" style={{ marginTop: 20, width: "160px" }}>
+          Login
+        </button>
+      </form>
+
+      <p style={{ marginTop: 15, color: "black" }}>
+        Don't have an account yet?{" "}
+        <a
+          href="/static/register" // Replace with your actual registration page path
+          style={{
+            color: "black",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Register here
+        </a>
+      </p>
+    </div>
+  );
+};
+
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -115,7 +267,7 @@ const CubeBackground = () => {
   return <primitive attach="background" object={textureCube} />;
 };
 
-const ModelTransition = ({ gltfFiles, interval = 5000 }) => {
+const ModelTransition = ({ gltfFiles, interval = 10000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentModel, setCurrentModel] = useState(null);
 
@@ -325,7 +477,7 @@ const ModelTransition = ({ gltfFiles, interval = 5000 }) => {
 
 const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
   const gltfFiles = [
-    "/gtlfFilesForHD1102/glow000.gltf",
+    "/new1111111.gltf",
     "/gtlfFilesForHD1102/glow001.gltf",
     "/gtlfFilesForHD1102/glow002.gltf",
     "/gtlfFilesForHD1102/glow003.gltf",
@@ -389,7 +541,7 @@ const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
     "/gtlfFilesForHD1102/glow061.gltf",
     "/gtlfFilesForHD1102/glow062.gltf",
     "/gtlfFilesForHD1102/glow063.gltf",
-    "./assets/gtlfFilesForHD1102/glow064.gltf",
+    "/gtlfFilesForHD1102/glow064.gltf",
     "/gtlfFilesForHD1102/glow065.gltf",
     "/gtlfFilesForHD1102/glow066.gltf",
     "/gtlfFilesForHD1102/glow067.gltf",
@@ -420,8 +572,8 @@ const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
       <Canvas
         id="ThreeJSScene"
         camera={{
-          position: [0, 0, 4],
-          fov: 75,
+          position: [500, 140, 500],
+          far: 3000,
         }}
         style={{
           height: "50vh",
