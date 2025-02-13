@@ -273,12 +273,25 @@ const ModelTransition = ({ gltfFiles, interval = 10000 }) => {
 
   useEffect(() => {
     const loader = new GLTFLoader();
+
     const loadModel = () => {
       loader.load(gltfFiles[currentIndex], (gltf) => {
+        // Traverse through all child objects of the loaded model
+        gltf.scene.traverse((child) => {
+          if (child.isMesh) {
+            // Modify the material here
+            child.material = new THREE.MeshBasicMaterial({
+              map: child.material.map, // Use the existing texture
+              color: 0xffffff, // Set color to white (ignores lighting)
+              emissive: 0x000000, // Optional: Emissive lighting (turn off)
+            });
+          }
+        });
+
+        // After modifying the material, set the scene
         setCurrentModel(gltf.scene);
       });
     };
-
     loadModel();
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % gltfFiles.length);
@@ -477,71 +490,71 @@ const ModelTransition = ({ gltfFiles, interval = 10000 }) => {
 
 const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
   const gltfFiles = [
-    "/newgltfFitles/000.gltf",
-    "/newgltfFitles/001.gltf",
-    "/newgltfFitles/002.gltf",
-    "/newgltfFitles/003.gltf",
-    "/newgltfFitles/004.gltf",
-    "/newgltfFitles/005.gltf",
-    "/newgltfFitles/006.gltf",
-    "/newgltfFitles/007.gltf",
-    "/newgltfFitles/008.gltf",
-    "/newgltfFitles/009.gltf",
-    "/gtlfFilesForHD1102/glow010.gltf",
-    "/gtlfFilesForHD1102/glow011.gltf",
-    "/gtlfFilesForHD1102/glow012.gltf",
-    "/gtlfFilesForHD1102/glow013.gltf",
-    "/gtlfFilesForHD1102/glow014.gltf",
-    "/gtlfFilesForHD1102/glow015.gltf",
-    "/gtlfFilesForHD1102/glow016.gltf",
-    "/gtlfFilesForHD1102/glow017.gltf",
-    "/gtlfFilesForHD1102/glow018.gltf",
-    "/gtlfFilesForHD1102/glow019.gltf",
-    "/gtlfFilesForHD1102/glow020.gltf",
-    "/gtlfFilesForHD1102/glow021gltf",
-    "/gtlfFilesForHD1102/glow022.gltf",
-    "/gtlfFilesForHD1102/glow023.gltf",
-    "/gtlfFilesForHD1102/glow024.gltf",
-    "/gtlfFilesForHD1102/glow025.gltf",
-    "/gtlfFilesForHD1102/glow026.gltf",
-    "/gtlfFilesForHD1102/glow027gltf",
-    "/gtlfFilesForHD1102/glow028.gltf",
-    "/gtlfFilesForHD1102/glow029.gltf",
-    "/gtlfFilesForHD1102/glow030.gltf",
-    "/gtlfFilesForHD1102/glow031.gltf",
-    "/gtlfFilesForHD1102/glow032.gltf",
-    "/gtlfFilesForHD1102/glow033.gltf",
-    "/gtlfFilesForHD1102/glow034.gltf",
-    "/gtlfFilesForHD1102/glow035.gltf",
-    "/gtlfFilesForHD1102/glow036.gltf",
-    "/gtlfFilesForHD1102/glow037.gltf",
-    "/gtlfFilesForHD1102/glow038.gltf",
-    "/gtlfFilesForHD1102/glow039.gltf",
-    "/gtlfFilesForHD1102/glow040.gltf",
-    "/gtlfFilesForHD1102/glow041.gltf",
-    "/gtlfFilesForHD1102/glow042.gltf",
-    "/gtlfFilesForHD1102/glow043.gltf",
-    "/gtlfFilesForHD1102/glow044.gltf",
-    "/gtlfFilesForHD1102/glow045.gltf",
-    "/gtlfFilesForHD1102/glow046.gltf",
-    "/gtlfFilesForHD1102/glow047.gltf",
-    "/gtlfFilesForHD1102/glow048.gltf",
-    "/gtlfFilesForHD1102/glow049.gltf",
-    "/gtlfFilesForHD1102/glow050.gltf",
-    "/gtlfFilesForHD1102/glow051.gltf",
-    "/gtlfFilesForHD1102/glow052.gltf",
-    "/gtlfFilesForHD1102/glow053.gltf",
-    "/gtlfFilesForHD1102/glow054.gltf",
-    "/gtlfFilesForHD1102/glow055.gltf",
-    "/gtlfFilesForHD1102/glow056.gltf",
-    "/gtlfFilesForHD1102/glow057.gltf",
-    "/gtlfFilesForHD1102/glow058.gltf",
-    "/gtlfFilesForHD1102/glow059.gltf",
-    "/gtlfFilesForHD1102/glow060.gltf",
-    "/gtlfFilesForHD1102/glow061.gltf",
-    "/gtlfFilesForHD1102/glow062.gltf",
-    "/gtlfFilesForHD1102/glow063.gltf",
-    "/gtlfFilesForHD1102/glow064.gltf",
+    "/newgltfFiles/000.gltf",
+    "/newgltfFiles/001.gltf",
+    "/newgltfFiles/002.gltf",
+    "/newgltfFiles/003.gltf",
+    "/newgltfFiles/004.gltf",
+    "/newgltfFiles/005.gltf",
+    "/newgltfFiles/006.gltf",
+    "/newgltfFiles/007.gltf",
+    "/newgltfFiles/008.gltf",
+    "/newgltfFiles/009.gltf",
+    "/newgltfFiles/010.gltf",
+    "/newgltfFiles/011.gltf",
+    "/newgltfFiles/012.gltf",
+    "/newgltfFiles/013.gltf",
+    "/newgltfFiles/014.gltf",
+    "/newgltfFiles/015.gltf",
+    "/newgltfFiles/016.gltf",
+    "/newgltfFiles/017.gltf",
+    "/newgltfFiles/018.gltf",
+    "/newgltfFiles/019.gltf",
+    "/newgltfFiles/020.gltf",
+    "/newgltfFiles/021.gltf",
+    "/newgltfFiles/022.gltf",
+    "/newgltfFiles/023.gltf",
+    "/newgltfFiles/024.gltf",
+    "/newgltfFiles/025.gltf",
+    "/newgltfFiles/026.gltf",
+    "/newgltfFiles/027.gltf",
+    "/newgltfFiles/028.gltf",
+    "/newgltfFiles/029.gltf",
+    "/newgltfFiles/030.gltf",
+    "/newgltfFiles/031.gltf",
+    "/newgltfFiles/032.gltf",
+    "/newgltfFiles/033.gltf",
+    "/newgltfFiles/034.gltf",
+    "/newgltfFiles/035.gltf",
+    "/newgltfFiles/036.gltf",
+    "/newgltfFiles/037.gltf",
+    "/newgltfFiles/038.gltf",
+    "/newgltfFiles/039.gltf",
+    "/newgltfFiles/040.gltf",
+    "/newgltfFiles/041.gltf",
+    "/newgltfFiles/042.gltf",
+    "/newgltfFiles/043.gltf",
+    "/newgltfFiles/044.gltf",
+    "/newgltfFiles/045.gltf",
+    "/newgltfFiles/046.gltf",
+    "/newgltfFiles/047.gltf",
+    "/newgltfFiles/048.gltf",
+    "/newgltfFiles/049.gltf",
+    "/newgltfFiles/050.gltf",
+    "/newgltfFiles/051.gltf",
+    "/newgltfFiles/052.gltf",
+    "/newgltfFiles/053.gltf",
+    "/newgltfFiles/054.gltf",
+    "/newgltfFiles/055.gltf",
+    "/newgltfFiles/056.gltf",
+    "/newgltfFiles/057.gltf",
+    "/newgltfFiles/058.gltf",
+    "/newgltfFiles/059.gltf",
+    "/newgltfFiles/060.gltf",
+    "/newgltfFiles/061.gltf",
+    "/newgltfFiles/062.gltf",
+    "/newgltfFiles/063.gltf",
+    "/newgltfFiles/064.gltf",
     "/gtlfFilesForHD1102/glow065.gltf",
     "/gtlfFilesForHD1102/glow066.gltf",
     "/gtlfFilesForHD1102/glow067.gltf",
@@ -583,12 +596,41 @@ const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
           left: "40px",
           borderRadius: "10px",
         }}
+        environment={null}
       >
         {isWhiteBackground ? (
           <color attach="background" args={["#ffffff"]} />
         ) : (
           <CubeBackground />
+          //   <color attach="background" args={["#000000"]} />
         )}
+        <ambientLight intensity={10} /> Really bright ambient light
+        {/* Add multiple directional lights */}
+        <directionalLight intensity={8} position={[10, 20, 10]} />
+        <directionalLight intensity={8} position={[-10, 20, 10]} />
+        <directionalLight intensity={8} position={[0, 20, 10]} />
+        <directionalLight intensity={8} position={[10, -20, 10]} />
+        {/* Add additional directional lights on the opposite side */}
+        <directionalLight intensity={8} position={[-10, 20, -10]} />
+        <directionalLight intensity={8} position={[10, 20, -10]} />
+        {/* Add multiple point lights */}
+        <pointLight intensity={6} position={[-10, 10, -10]} />
+        <pointLight intensity={6} position={[10, 10, -10]} />
+        <pointLight intensity={6} position={[-10, -10, -10]} />
+        <pointLight intensity={6} position={[10, -10, -10]} />
+        {/* Add additional point lights on the opposite side */}
+        <pointLight intensity={6} position={[-10, 10, 10]} />
+        <pointLight intensity={6} position={[10, 10, 10]} />
+        <pointLight intensity={6} position={[-10, -10, 10]} />
+        <pointLight intensity={6} position={[10, -10, 10]} />
+        {/* Add multiple spotlights */}
+        <spotLight intensity={6} position={[0, 15, 0]} angle={0.5} />
+        <spotLight intensity={6} position={[5, 15, 5]} angle={0.5} />
+        <spotLight intensity={6} position={[-5, 15, -5]} angle={0.5} />
+        {/* Add additional spotlights on the opposite side */}
+        <spotLight intensity={6} position={[0, 15, 5]} angle={0.5} />
+        <spotLight intensity={6} position={[-5, 15, 5]} angle={0.5} />
+        <spotLight intensity={6} position={[5, 15, -5]} angle={0.5} />
         <OrbitControls enableDamping dampingFactor={0.05} zoomSpeed={0.5} />
         <ModelTransition gltfFiles={gltfFiles} />
       </Canvas>
@@ -610,7 +652,7 @@ const PlanetInfo = () => {
       className="absolute right-10 transform -translate-x-10 p-4 rounded-lg shadow-lg w-90 font-courier"
       style={{
         height: "50vh",
-        top: "228px",
+        top: "270px",
       }}
     >
       <h2 className="text-lg font-bold mb-4 border-b border-gray-700 pb-2">
