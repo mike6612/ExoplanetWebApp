@@ -267,7 +267,7 @@ const CubeBackground = () => {
   return <primitive attach="background" object={textureCube} />;
 };
 
-const ModelTransition = ({ gltfFiles, interval = 10000 }) => {
+const ModelTransition = ({ gltfFiles, interval = 3800 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentModel, setCurrentModel] = useState(null);
 
@@ -555,29 +555,29 @@ const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
     "/newgltfFiles/062.gltf",
     "/newgltfFiles/063.gltf",
     "/newgltfFiles/064.gltf",
-    "/gtlfFilesForHD1102/glow065.gltf",
-    "/gtlfFilesForHD1102/glow066.gltf",
-    "/gtlfFilesForHD1102/glow067.gltf",
-    "/gtlfFilesForHD1102/glow068.gltf",
-    "/gtlfFilesForHD1102/glow069.gltf",
-    "/gtlfFilesForHD1102/glow070.gltf",
-    "/gtlfFilesForHD1102/glow071.gltf",
-    "/gtlfFilesForHD1102/glow072.gltf",
-    "/gtlfFilesForHD1102/glow073.gltf",
-    "/gtlfFilesForHD1102/glow074.gltf",
-    "/gtlfFilesForHD1102/glow075.gltf",
-    "/gtlfFilesForHD1102/glow076.gltf",
-    "/gtlfFilesForHD1102/glow077.gltf",
-    "/gtlfFilesForHD1102/glow078.gltf",
-    "/gtlfFilesForHD1102/glow079.gltf",
-    "/gtlfFilesForHD1102/glow080.gltf",
-    "/gtlfFilesForHD1102/glow081.gltf",
-    "/gtlfFilesForHD1102/glow082.gltf",
-    "/gtlfFilesForHD1102/glow083.gltf",
-    "/gtlfFilesForHD1102/glow084.gltf",
-    "/gtlfFilesForHD1102/glow085.gltf",
-    "/gtlfFilesForHD1102/glow086.gltf",
-    "/gtlfFilesForHD1102/glow087.gltf",
+    "/newgltfFiles/065.gltf",
+    "/newgltfFiles/066.gltf",
+    "/newgltfFiles/067.gltf",
+    "/newgltfFiles/068.gltf",
+    "/newgltfFiles/069.gltf",
+    "/newgltfFiles/070.gltf",
+    "/newgltfFiles/071.gltf",
+    "/newgltfFiles/072.gltf",
+    "/newgltfFiles/073.gltf",
+    "/newgltfFiles/074.gltf",
+    "/newgltfFiles/075.gltf",
+    "/newgltfFiles/076.gltf",
+    "/newgltfFiles/077.gltf",
+    "/newgltfFiles/078.gltf",
+    "/newgltfFiles/079.gltf",
+    "/newgltfFiles/080.gltf",
+    "/newgltfFiles/081.gltf",
+    "/newgltfFiles/082.gltf",
+    "/newgltfFiles/083.gltf",
+    "/newgltfFiles/084.gltf",
+    "/newgltfFiles/085.gltf",
+    "/newgltfFiles/086.gltf",
+    "/newgltfFiles/087.gltf",
   ];
 
   return (
@@ -648,13 +648,7 @@ const PlanetTitle = ({ title }) => {
 
 const PlanetInfo = () => {
   return (
-    <div
-      className="absolute right-10 transform -translate-x-10 p-4 rounded-lg shadow-lg w-90 font-courier"
-      style={{
-        height: "50vh",
-        top: "270px",
-      }}
-    >
+    <div className="absolute right-10 transform -translate-x-10 p-4 rounded-lg shadow-lg w-90 font-courier h-[50vh] top-[263px]">
       <h2 className="text-lg font-bold mb-4 border-b border-gray-700 pb-2">
         Planet System Details
       </h2>
