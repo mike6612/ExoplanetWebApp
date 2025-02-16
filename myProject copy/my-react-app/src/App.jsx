@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.171.0/build/three.module.js";
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/jsm/loaders/GLTFLoader.js";
 // import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/jsm/controls/OrbitControls.js";
-import { OrbitControls } from "@react-three/drei";
+import { DeviceOrientationControls, OrbitControls } from "@react-three/drei";
 
 const SignupComponent = () => {
   const [email, setEmail] = useState("");
@@ -223,10 +223,133 @@ const Body = () => {
       title: "HD-110067",
       image:
         "https://images.unsplash.com/photo-1464802686167-b939a6910659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FsYXh5fGVufDB8fDB8fHww",
+      details: {
+        numofPlanets: "6",
+        missionName: "Cheops",
+        distanceFromEarth: "9.92 trillion miles",
+        travelTime: "105 light-years",
+        starType: "K0V Star",
+        starAge: "2.5 billion years old",
+        starMass: "0.798 times the Sun",
+        discoveryYear: "2023",
+        discoveryMethod: "Transit",
+      },
+      gltfFiles: [
+        "/HD-110067/000.gltf",
+        "/HD-110067/001.gltf",
+        "/HD-110067/002.gltf",
+        "/HD-110067/003.gltf",
+        "/HD-110067/004.gltf",
+        "/HD-110067/005.gltf",
+        "/HD-110067/006.gltf",
+        "/HD-110067/007.gltf",
+        "/HD-110067/008.gltf",
+        "/HD-110067/009.gltf",
+        "/HD-110067/010.gltf",
+        "/HD-110067/011.gltf",
+        "/HD-110067/012.gltf",
+        "/HD-110067/013.gltf",
+        "/HD-110067/014.gltf",
+        "/HD-110067/015.gltf",
+        "/HD-110067/016.gltf",
+        "/HD-110067/017.gltf",
+        "/HD-110067/018.gltf",
+        "/HD-110067/019.gltf",
+        "/HD-110067/020.gltf",
+        "/HD-110067/021.gltf",
+        "/HD-110067/022.gltf",
+        "/HD-110067/023.gltf",
+        "/HD-110067/024.gltf",
+        "/HD-110067/025.gltf",
+        "/HD-110067/026.gltf",
+        "/HD-110067/027.gltf",
+        "/HD-110067/028.gltf",
+        "/HD-110067/029.gltf",
+        "/HD-110067/030.gltf",
+        "/HD-110067/031.gltf",
+        "/HD-110067/032.gltf",
+        "/HD-110067/033.gltf",
+        "/HD-110067/034.gltf",
+        "/HD-110067/035.gltf",
+        "/HD-110067/036.gltf",
+        "/HD-110067/037.gltf",
+        "/HD-110067/038.gltf",
+        "/HD-110067/039.gltf",
+        "/HD-110067/040.gltf",
+        "/HD-110067/041.gltf",
+        "/HD-110067/042.gltf",
+        "/HD-110067/043.gltf",
+        "/HD-110067/044.gltf",
+        "/HD-110067/045.gltf",
+        "/HD-110067/046.gltf",
+        "/HD-110067/047.gltf",
+        "/HD-110067/048.gltf",
+        "/HD-110067/049.gltf",
+        "/HD-110067/050.gltf",
+        "/HD-110067/051.gltf",
+        "/HD-110067/052.gltf",
+        "/HD-110067/053.gltf",
+        "/HD-110067/054.gltf",
+        "/HD-110067/055.gltf",
+        "/HD-110067/056.gltf",
+        "/HD-110067/057.gltf",
+        "/HD-110067/058.gltf",
+        "/HD-110067/059.gltf",
+        "/HD-110067/060.gltf",
+        "/HD-110067/061.gltf",
+        "/HD-110067/062.gltf",
+        "/HD-110067/063.gltf",
+        "/HD-110067/064.gltf",
+        "/HD-110067/065.gltf",
+        "/HD-110067/066.gltf",
+        "/HD-110067/067.gltf",
+        "/HD-110067/068.gltf",
+        "/HD-110067/069.gltf",
+        "/HD-110067/070.gltf",
+        "/HD-110067/071.gltf",
+        "/HD-110067/072.gltf",
+        "/HD-110067/073.gltf",
+        "/HD-110067/074.gltf",
+        "/HD-110067/075.gltf",
+        "/HD-110067/076.gltf",
+        "/HD-110067/077.gltf",
+        "/HD-110067/078.gltf",
+        "/HD-110067/079.gltf",
+        "/HD-110067/080.gltf",
+        "/HD-110067/081.gltf",
+        "/HD-110067/082.gltf",
+        "/HD-110067/083.gltf",
+        "/HD-110067/084.gltf",
+        "/HD-110067/085.gltf",
+        "/HD-110067/086.gltf",
+        "/HD-110067/087.gltf",
+      ],
+      cameraPosition: [10, 3, 10],
+    },
+    {
+      id: "DMPP-1",
+      title: "DMPP-1",
+      image:
+        "https://images.unsplash.com/photo-1464802686167-b939a6910659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FsYXh5fGVufDB8fDB8fHww",
+      details: {
+        numofPlanets: "4",
+        missionName: "DMPP",
+        distanceFromEarth: "200 light-years",
+        travelTime: "200 years at light speed",
+        starType: "F8V Star",
+        starAge: "3.6 billion years old",
+        starMass: "1.1 times the Sun",
+        discoveryYear: "2019",
+        discoveryMethod: "Radial Velocity",
+      },
+      gltfFiles: ["/DMPP-1/000.gltf", "/DMPP-1/001.gltf", "/DMPP-1/002.gltf"],
+      cameraPosition: [1.5, 0.5, 1.5],
     },
   ];
-  const handleBoxClick = (id, title) => {
-    navigate(`/${id}`, { state: { title } });
+  const handleBoxClick = (id, title, details, gltfFiles, cameraPosition) => {
+    navigate(`/${id}`, {
+      state: { title, details, gltfFiles, cameraPosition },
+    });
   };
 
   return (
@@ -237,7 +360,15 @@ const Body = () => {
             key={index}
             title={box.title}
             image={box.image}
-            handleClick={() => handleBoxClick(box.id, box.title)}
+            handleClick={() =>
+              handleBoxClick(
+                box.id,
+                box.title,
+                box.details,
+                box.gltfFiles,
+                box.cameraPosition
+              )
+            }
           />
         ))}
       </div>
@@ -305,287 +436,17 @@ const ModelTransition = ({ gltfFiles, interval = 3800 }) => {
   ) : null;
 };
 
-// const ThreeJSSCENEHD110067 = () => {
-//   let textureCube;
-//   const scene = new THREE.Scene();
-
-//   const loader2 = new THREE.CubeTextureLoader();
-
-//   textureCube = loader2.load([
-//     "./assets/threejsBoxView/right5.png",
-//     "./assets/threejsBoxView/left5.png",
-//     "./assets/threejsBoxView/top5.png",
-//     "./assets/threejsBoxView/bottom5.png",
-//     "./assets/threejsBoxView/front5.png",
-//     "./assets/threejsBoxView/back5.png",
-//   ]);
-
-//   scene.background = textureCube;
-
-//   const loader = new GLTFLoader();
-
-//   const camera = new THREE.PerspectiveCamera(
-//     75,
-//     window.innerWidth / window.innerHeight,
-//     0.1,
-//     1000
-//   );
-//   camera.position.set(0, 0, 4);
-//   const renderer = new THREE.WebGLRenderer();
-
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-//   document.body.appendChild(renderer.domElement);
-
-//   const controls = new OrbitControls(camera, renderer.domElement);
-//   controls.enableDamping = true; // Smooth controls
-//   controls.dampingFactor = 0.05;
-//   controls.zoomSpeed = 0.5;
-
-//   // loader.load("glow000.gltf", (gltf) => {
-
-//   //   scene.add(gltf.scene);
-//   //   gltf.scene.position.set(0, 0, 0);
-
-//   //   gltf.scene.scale.set(20, 20, 20);
-//   // });
-
-//   const gltfFiles = [
-//     "./assets/gtlfFilesForHD1102/glow000.gltf",
-//     "./assets/gtlfFilesForHD1102/glow001.gltf",
-//     "./assets/gtlfFilesForHD1102/glow002.gltf",
-//     "./assets/gtlfFilesForHD1102/glow003.gltf",
-//     "./assets/gtlfFilesForHD1102/glow004.gltf",
-//     "./assets/gtlfFilesForHD1102/glow005.gltf",
-//     "./assets/gtlfFilesForHD1102/glow006.gltf",
-//     "./assets/gtlfFilesForHD1102/glow007.gltf",
-//     "./assets/gtlfFilesForHD1102/glow008.gltf",
-//     "./assets/gtlfFilesForHD1102/glow009.gltf",
-//     "./assets/gtlfFilesForHD1102/glow010.gltf",
-//     "./assets/gtlfFilesForHD1102/glow011.gltf",
-//     "./assets/gtlfFilesForHD1102/glow012.gltf",
-//     "./assets/gtlfFilesForHD1102/glow013.gltf",
-//     "./assets/gtlfFilesForHD1102/glow014.gltf",
-//     "./assets/gtlfFilesForHD1102/glow015.gltf",
-//     "./assets/gtlfFilesForHD1102/glow016.gltf",
-//     "./assets/gtlfFilesForHD1102/glow017.gltf",
-//     "./assets/gtlfFilesForHD1102/glow018.gltf",
-//     "./assets/gtlfFilesForHD1102/glow019.gltf",
-//     "./assets/gtlfFilesForHD1102/glow020.gltf",
-//     "./assets/gtlfFilesForHD1102/glow021gltf",
-//     "./assets/gtlfFilesForHD1102/glow022.gltf",
-//     "./assets/gtlfFilesForHD1102/glow023.gltf",
-//     "./assets/gtlfFilesForHD1102/glow024.gltf",
-//     "./assets/gtlfFilesForHD1102/glow025.gltf",
-//     "./assets/gtlfFilesForHD1102/glow026.gltf",
-//     "./assets/gtlfFilesForHD1102/glow027gltf",
-//     "./assets/gtlfFilesForHD1102/glow028.gltf",
-//     "./assets/gtlfFilesForHD1102/glow029.gltf",
-//     "./assets/gtlfFilesForHD1102/glow030.gltf",
-//     "./assets/gtlfFilesForHD1102/glow031.gltf",
-//     "./assets/gtlfFilesForHD1102/glow032.gltf",
-//     "./assets/gtlfFilesForHD1102/glow033.gltf",
-//     "./assets/gtlfFilesForHD1102/glow034.gltf",
-//     "./assets/gtlfFilesForHD1102/glow035.gltf",
-//     "./assets/gtlfFilesForHD1102/glow036.gltf",
-//     "./assets/gtlfFilesForHD1102/glow037.gltf",
-//     "./assets/gtlfFilesForHD1102/glow038.gltf",
-//     "./assets/gtlfFilesForHD1102/glow039.gltf",
-//     "./assets/gtlfFilesForHD1102/glow040.gltf",
-//     "./assets/gtlfFilesForHD1102/glow041.gltf",
-//     "./assets/gtlfFilesForHD1102/glow042.gltf",
-//     "./assets/gtlfFilesForHD1102/glow043.gltf",
-//     "./assets/gtlfFilesForHD1102/glow044.gltf",
-//     "./assets/gtlfFilesForHD1102/glow045.gltf",
-//     "./assets/gtlfFilesForHD1102/glow046.gltf",
-//     "./assets/gtlfFilesForHD1102/glow047.gltf",
-//     "./assets/gtlfFilesForHD1102/glow048.gltf",
-//     "./assets/gtlfFilesForHD1102/glow049.gltf",
-//     "./assets/gtlfFilesForHD1102/glow050.gltf",
-//     "./assets/gtlfFilesForHD1102/glow051.gltf",
-//     "./assets/gtlfFilesForHD1102/glow052.gltf",
-//     "./assets/gtlfFilesForHD1102/glow053.gltf",
-//     "./assets/gtlfFilesForHD1102/glow054.gltf",
-//     "./assets/gtlfFilesForHD1102/glow055.gltf",
-//     "./assets/gtlfFilesForHD1102/glow056.gltf",
-//     "./assets/gtlfFilesForHD1102/glow057.gltf",
-//     "./assets/gtlfFilesForHD1102/glow058.gltf",
-//     "./assets/gtlfFilesForHD1102/glow059.gltf",
-//     "./assets/gtlfFilesForHD1102/glow060.gltf",
-//     "./assets/gtlfFilesForHD1102/glow061.gltf",
-//     "./assets/gtlfFilesForHD1102/glow062.gltf",
-//     "./assets/gtlfFilesForHD1102/glow063.gltf",
-//     "./assets/gtlfFilesForHD1102/glow064.gltf",
-//     "./assets/gtlfFilesForHD1102/glow065.gltf",
-//     "./assets/gtlfFilesForHD1102/glow066.gltf",
-//     "./assets/gtlfFilesForHD1102/glow067.gltf",
-//     "./assets/gtlfFilesForHD1102/glow068.gltf",
-//     "./assets/gtlfFilesForHD1102/glow069.gltf",
-//     "./assets/gtlfFilesForHD1102/glow070.gltf",
-//     "./assets/gtlfFilesForHD1102/glow071.gltf",
-//     "./assets/gtlfFilesForHD1102/glow072.gltf",
-//     "./assets/gtlfFilesForHD1102/glow073.gltf",
-//     "./assets/gtlfFilesForHD1102/glow074.gltf",
-//     "./assets/gtlfFilesForHD1102/glow075.gltf",
-//     "./assets/gtlfFilesForHD1102/glow076.gltf",
-//     "./assets/gtlfFilesForHD1102/glow077.gltf",
-//     "./assets/gtlfFilesForHD1102/glow078.gltf",
-//     "./assets/gtlfFilesForHD1102/glow079.gltf",
-//     "./assets/gtlfFilesForHD1102/glow080.gltf",
-//     "./assets/gtlfFilesForHD1102/glow081.gltf",
-//     "./assets/gtlfFilesForHD1102/glow082.gltf",
-//     "./assets/gtlfFilesForHD1102/glow083.gltf",
-//     "./assets/gtlfFilesForHD1102/glow084.gltf",
-//     "./assets/gtlfFilesForHD1102/glow085.gltf",
-//     "./assets/gtlfFilesForHD1102/glow086.gltf",
-//     "./assets/gtlfFilesForHD1102/glow087.gltf",
-//   ];
-
-//   let currentIndex = 0;
-//   let currentModel = null;
-
-//   setInterval(() => {
-//     loader.load(gltfFiles[currentIndex], (gltf) => {
-//       if (currentModel) scene.remove(currentModel);
-//       currentModel = gltf.scene;
-//       scene.add(currentModel);
-//       gltf.scene.position.set(0, 0, 0);
-//       gltf.scene.scale.set(20, 20, 20);
-//     });
-//     // Move to the next file or loop back to the start
-//     currentIndex = (currentIndex + 1) % gltfFiles.length;
-//   }, 3000);
-
-//   // const loadedModels = [];
-//   // gltfFiles.forEach((file, index) => {
-//   //   loader.load(file, (gltf) => {
-//   //     const model = gltf.scene;
-
-//   //     model.scale.set(20, 20, 20);
-//   //     loadedModels[index] = model;
-//   //   });
-//   // });
-//   // setInterval(() => {
-//   //   if (loadedModels[currentIndex]) {
-//   //     if (currentModel) scene.remove(currentModel);
-//   //     currentModel = loadedModels[currentIndex];
-//   //     scene.add(currentModel);
-//   //   }
-//   //   currentIndex = (currentIndex + 1) % gltfFiles.length;
-//   // }, 1000);
-
-//   window.addEventListener("resize", () => {
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-//   });
-
-//   function animate() {
-//     requestAnimationFrame(animate);
-//     controls.update();
-//     renderer.render(scene, camera);
-//   }
-
-//   animate();
-// };
-
-const NewThreeJSSSCENEHD110067 = ({ isWhiteBackground }) => {
-  const gltfFiles = [
-    "/newgltfFiles/000.gltf",
-    "/newgltfFiles/001.gltf",
-    "/newgltfFiles/002.gltf",
-    "/newgltfFiles/003.gltf",
-    "/newgltfFiles/004.gltf",
-    "/newgltfFiles/005.gltf",
-    "/newgltfFiles/006.gltf",
-    "/newgltfFiles/007.gltf",
-    "/newgltfFiles/008.gltf",
-    "/newgltfFiles/009.gltf",
-    "/newgltfFiles/010.gltf",
-    "/newgltfFiles/011.gltf",
-    "/newgltfFiles/012.gltf",
-    "/newgltfFiles/013.gltf",
-    "/newgltfFiles/014.gltf",
-    "/newgltfFiles/015.gltf",
-    "/newgltfFiles/016.gltf",
-    "/newgltfFiles/017.gltf",
-    "/newgltfFiles/018.gltf",
-    "/newgltfFiles/019.gltf",
-    "/newgltfFiles/020.gltf",
-    "/newgltfFiles/021.gltf",
-    "/newgltfFiles/022.gltf",
-    "/newgltfFiles/023.gltf",
-    "/newgltfFiles/024.gltf",
-    "/newgltfFiles/025.gltf",
-    "/newgltfFiles/026.gltf",
-    "/newgltfFiles/027.gltf",
-    "/newgltfFiles/028.gltf",
-    "/newgltfFiles/029.gltf",
-    "/newgltfFiles/030.gltf",
-    "/newgltfFiles/031.gltf",
-    "/newgltfFiles/032.gltf",
-    "/newgltfFiles/033.gltf",
-    "/newgltfFiles/034.gltf",
-    "/newgltfFiles/035.gltf",
-    "/newgltfFiles/036.gltf",
-    "/newgltfFiles/037.gltf",
-    "/newgltfFiles/038.gltf",
-    "/newgltfFiles/039.gltf",
-    "/newgltfFiles/040.gltf",
-    "/newgltfFiles/041.gltf",
-    "/newgltfFiles/042.gltf",
-    "/newgltfFiles/043.gltf",
-    "/newgltfFiles/044.gltf",
-    "/newgltfFiles/045.gltf",
-    "/newgltfFiles/046.gltf",
-    "/newgltfFiles/047.gltf",
-    "/newgltfFiles/048.gltf",
-    "/newgltfFiles/049.gltf",
-    "/newgltfFiles/050.gltf",
-    "/newgltfFiles/051.gltf",
-    "/newgltfFiles/052.gltf",
-    "/newgltfFiles/053.gltf",
-    "/newgltfFiles/054.gltf",
-    "/newgltfFiles/055.gltf",
-    "/newgltfFiles/056.gltf",
-    "/newgltfFiles/057.gltf",
-    "/newgltfFiles/058.gltf",
-    "/newgltfFiles/059.gltf",
-    "/newgltfFiles/060.gltf",
-    "/newgltfFiles/061.gltf",
-    "/newgltfFiles/062.gltf",
-    "/newgltfFiles/063.gltf",
-    "/newgltfFiles/064.gltf",
-    "/newgltfFiles/065.gltf",
-    "/newgltfFiles/066.gltf",
-    "/newgltfFiles/067.gltf",
-    "/newgltfFiles/068.gltf",
-    "/newgltfFiles/069.gltf",
-    "/newgltfFiles/070.gltf",
-    "/newgltfFiles/071.gltf",
-    "/newgltfFiles/072.gltf",
-    "/newgltfFiles/073.gltf",
-    "/newgltfFiles/074.gltf",
-    "/newgltfFiles/075.gltf",
-    "/newgltfFiles/076.gltf",
-    "/newgltfFiles/077.gltf",
-    "/newgltfFiles/078.gltf",
-    "/newgltfFiles/079.gltf",
-    "/newgltfFiles/080.gltf",
-    "/newgltfFiles/081.gltf",
-    "/newgltfFiles/082.gltf",
-    "/newgltfFiles/083.gltf",
-    "/newgltfFiles/084.gltf",
-    "/newgltfFiles/085.gltf",
-    "/newgltfFiles/086.gltf",
-    "/newgltfFiles/087.gltf",
-  ];
-
+const NewThreeJSSSCENEHD110067 = ({
+  isWhiteBackground,
+  gltfFiles,
+  cameraPosition,
+}) => {
   return (
     <div>
       <Canvas
         id="ThreeJSScene"
         camera={{
-          position: [10, 3, 10],
+          position: cameraPosition,
           far: 1000,
         }}
         style={{
@@ -646,7 +507,7 @@ const PlanetTitle = ({ title }) => {
   );
 };
 
-const PlanetInfo = () => {
+const PlanetInfo = ({ details }) => {
   return (
     <div className="absolute right-10 transform -translate-x-10 p-4 rounded-lg shadow-lg w-90 font-courier h-[50vh] top-[263px]">
       <h2 className="text-lg font-bold mb-4 border-b border-gray-700 pb-2">
@@ -654,31 +515,32 @@ const PlanetInfo = () => {
       </h2>
       <ul className="space-y-2 text-sm">
         <li>
-          <strong>Number of Planets:</strong> 6
+          <strong>Number of Planets:</strong> {details.numofPlanets}
         </li>
         <li>
-          <strong>Observatory/Mission Name:</strong> Cheops
+          <strong>Observatory/Mission Name:</strong> {details.missionName}
         </li>
         <li>
-          <strong>Distance from Earth:</strong> 9.92 trillion miles
+          <strong>Distance from Earth:</strong> {details.distanceFromEarth}
         </li>
         <li>
-          <strong>Travel Time:</strong> 105 light-years
+          <strong>Travel Time:</strong> {details.travelTime}
         </li>
         <li>
-          <strong>Type of Star:</strong> K0V Star
+          <strong>Type of Star:</strong> {details.starType}
         </li>
         <li>
-          <strong>Star’s Age:</strong> 2.5 billion years old
+          <strong>Star’s Age:</strong>
+          {details.starAge}
         </li>
         <li>
-          <strong>Star’s Mass:</strong> 0.798 times the Sun
+          <strong>Star’s Mass:</strong> {details.starMass}
         </li>
         <li>
-          <strong>Discovery Year:</strong> 2023
+          <strong>Discovery Year:</strong> {details.discoveryYear}
         </li>
         <li>
-          <strong>Discovery Method:</strong> Transit
+          <strong>Discovery Method:</strong> {details.discoveryMethod}
         </li>
       </ul>
     </div>
@@ -688,7 +550,7 @@ const PlanetInfo = () => {
 const BoxDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const { title } = location.state || {};
+  const { title, details, gltfFiles, cameraPosition } = location.state || {};
   const [isWhiteBackground, setWhiteBackground] = useState(false);
 
   const toggleWhiteBackground = () => {
@@ -716,7 +578,7 @@ const BoxDetails = () => {
   return (
     <div>
       <PlanetTitle title={title} />
-      <PlanetInfo />
+      <PlanetInfo details={details} />
       <GoScreenFull
         style={{
           height: "5vh",
@@ -744,7 +606,11 @@ const BoxDetails = () => {
         {isWhiteBackground ? "Space" : "White"}
       </button>
 
-      <NewThreeJSSSCENEHD110067 isWhiteBackground={isWhiteBackground} />
+      <NewThreeJSSSCENEHD110067
+        isWhiteBackground={isWhiteBackground}
+        gltfFiles={gltfFiles}
+        cameraPosition={cameraPosition}
+      />
     </div>
   );
 };
