@@ -20,7 +20,7 @@ Exoplanets brings exoplanetary systems to life through accurate, interactive 3D 
 - Customizable dynamic scene backgrounds
 
 ## Technologies Used
-- Node + Express
+- Node + Express(Backend framework)
 - Tailwind(CSS framework)
 - React(Frontend framework)
 - MongoDB(Database)
